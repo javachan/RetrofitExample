@@ -24,6 +24,7 @@ public class ApiResponse {
     @SerializedName("sys")
     private Sys sys;
 
+    // because weather is json array, here we use array
     @SerializedName("weather")
     private ArrayList<Weather> weather;
 

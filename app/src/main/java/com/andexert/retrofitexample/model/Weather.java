@@ -19,23 +19,19 @@ public class Weather
     @SerializedName("icon")
     private String strIconName;
 
-    public String getStrDesc()
-    {
+    public String getStrDesc() {
         return strDesc;
     }
 
-    public void setStrDesc(String strDesc)
-    {
+    public void setStrDesc(String strDesc) {
         this.strDesc = strDesc;
     }
 
-    public String getStrIconName()
-    {
+    public String getStrIconName() {
         return strIconName;
     }
 
-    public void setStrIconName(String strIconName)
-    {
+    public void setStrIconName(String strIconName) {
         this.strIconName = strIconName;
     }
 }

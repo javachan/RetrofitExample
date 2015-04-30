@@ -19,13 +19,11 @@ public class Coord
     @SerializedName("lat")
     private Double latitude;
 
-    public Double getLongitude()
-    {
+    public Double getLongitude() {
         return longitude;
     }
 
-    public Double getLatitude()
-    {
+    public Double getLatitude() {
         return latitude;
     }
 }
