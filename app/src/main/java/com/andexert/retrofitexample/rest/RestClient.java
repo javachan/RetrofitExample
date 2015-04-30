@@ -11,13 +11,12 @@ import retrofit.converter.GsonConverter;
  * Author :    Chutaux Robin
  * Date :      10/2/2014
  */
-public class RestClient
-{
+public class RestClient {
+
     private static final String BASE_URL = "http://api.openweathermap.org/";
     private WeatherService apiService;
 
-    public RestClient()
-    {
+    public RestClient() {
         Gson gson = new GsonBuilder()
             .registerTypeAdapterFactory(new ItemTypeAdapterFactory())
             .create();
@@ -31,8 +30,7 @@ public class RestClient
         apiService = restAdapter.create(WeatherService.class);
     }
 
-    public WeatherService getWeatherService()
-    {
+    public WeatherService getWeatherService() {
         return apiService;
     }
 }

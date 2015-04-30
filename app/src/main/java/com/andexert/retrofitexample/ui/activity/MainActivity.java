@@ -81,7 +81,8 @@ public class MainActivity extends Activity {
                     countryTextView.setText(apiResponse.getSys().getStrCountry());
 
                     if (!apiResponse.getWeather().isEmpty()) {
-                        Picasso.with(MainActivity.this).load("http://openweathermap.org/img/w/" + apiResponse.getWeather().get(0).getStrIconName() + ".png").into(iconImageView);
+                        Picasso.with(MainActivity.this).load("http://openweathermap.org/img/w/" +
+                                apiResponse.getWeather().get(0).getStrIconName() + ".png").into(iconImageView);
                         weatherTextView.setText(apiResponse.getWeather().get(0).getStrDesc());
                     }
 

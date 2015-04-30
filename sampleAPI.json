@@ -1,0 +1,41 @@
+{
+    "coord": {
+        "lon": -122.02,
+        "lat": 37.26
+    },
+    "sys": {
+        "message": 0.0139,
+        "country": "US",
+        "sunrise": 1430399617,
+        "sunset": 1430449012
+    },
+    "weather": [
+        {
+            "id": 800,
+            "main": "Clear",
+            "description": "Sky is Clear",
+            "icon": "01n"
+        }
+    ],
+    "base": "stations",
+    "main": {
+        "temp": 282.149,
+        "temp_min": 282.149,
+        "temp_max": 282.149,
+        "pressure": 987.93,
+        "sea_level": 1026.57,
+        "grnd_level": 987.93,
+        "humidity": 86
+    },
+    "wind": {
+        "speed": 1.16,
+        "deg": 298.001
+    },
+    "clouds": {
+        "all": 0
+    },
+    "dt": 1430371471,
+    "id": 5393485,
+    "name": "Saratoga",
+    "cod": 200
+}

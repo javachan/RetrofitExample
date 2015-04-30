@@ -10,8 +10,8 @@ import retrofit.http.Query;
  * Author :    Chutaux Robin
  * Date :      10/2/2014
  */
-public interface WeatherService
-{
+public interface WeatherService {
+    // http://api.openweathermap.org/data/2.5/weather?q=saratoga
     @GET("/data/2.5/weather")
     public void getWeather(@Query("q") String strCity, Callback<ApiResponse> callback);
 }

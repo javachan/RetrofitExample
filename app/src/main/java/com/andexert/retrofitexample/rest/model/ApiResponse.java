@@ -16,8 +16,8 @@ import java.util.ArrayList;
  * Date :      10/2/2014
  */
 @Parcel
-public class ApiResponse
-{
+public class ApiResponse {
+
     @SerializedName("coord")
     private Coord coord;
 
@@ -36,33 +36,27 @@ public class ApiResponse
     @SerializedName("name")
     private String strCityName;
 
-    public Coord getCoord()
-    {
+    public Coord getCoord() {
         return coord;
     }
 
-    public Sys getSys()
-    {
+    public Sys getSys() {
         return sys;
     }
 
-    public ArrayList<Weather> getWeather()
-    {
+    public ArrayList<Weather> getWeather() {
         return weather;
     }
 
-    public MainInfos getMainInfos()
-    {
+    public MainInfos getMainInfos() {
         return mainInfos;
     }
 
-    public Wind getWind()
-    {
+    public Wind getWind() {
         return wind;
     }
 
-    public String getStrCityName()
-    {
+    public String getStrCityName() {
         return strCityName;
     }
 }
