@@ -29,12 +29,16 @@ public class ItemTypeAdapterFactory implements TypeAdapterFactory {
 
             public T read(JsonReader in) throws IOException {
                 JsonElement jsonElement = elementAdapter.read(in);
-                if (jsonElement.isJsonObject()) {
+
+                // NOTE the following commented code is error handling for that specific example
+                // without it, rest adapter can still function well. This means this ItemTypeAdapterFactory
+                // can be a generic boilerplate class serves as a component of singleton rest dispenser
+                /*if (jsonElement.isJsonObject()) {
                     JsonObject jsonObject = jsonElement.getAsJsonObject();
                     if (jsonObject.has("cod") && jsonObject.get("cod").getAsInt() == 404) {
                         throw new IllegalArgumentException(jsonObject.get("message").getAsString());
                     }
-                }
+                }*/
 
                 return delegate.fromJsonTree(jsonElement);
             }

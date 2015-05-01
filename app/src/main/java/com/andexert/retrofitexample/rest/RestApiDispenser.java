@@ -16,7 +16,7 @@ import retrofit.converter.GsonConverter;
 /** Inspired by this post
  * http://stackoverflow.com/questions/25275106/where-to-attach-the-reference-to-a-retrofit-adapter-in-android
  */
-public class RestApiDispencer {
+public class RestApiDispenser {
     public static final String BASE_URL = "http://api.openweathermap.org/";
 
     // put all API "interfaces" into a hash map so that every interface is created only once
@@ -26,14 +26,14 @@ public class RestApiDispencer {
 
     // restAdapter is treated as an argument for the constructor which implies that rest adater
     // can be a singleton class and be shared by all API interfaces
-    public RestApiDispencer() {
+    public RestApiDispenser() {
         Gson gson = new GsonBuilder()
                 .registerTypeAdapterFactory(new ItemTypeAdapterFactory())
                 .create();
 
         this.restAdapter = new RestAdapter.Builder()
                 .setLogLevel(RestAdapter.LogLevel.FULL)
-                .setEndpoint(RestApiDispencer.BASE_URL)
+                .setEndpoint(RestApiDispenser.BASE_URL)
                 .setConverter(new GsonConverter(gson))
                 .build();
     }

@@ -2,29 +2,23 @@ package com.andexert.retrofitexample.app;
 
 import android.app.Application;
 
-import com.andexert.retrofitexample.rest.ItemTypeAdapterFactory;
-import com.andexert.retrofitexample.rest.RestApiDispencer;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
-import retrofit.RestAdapter;
-import retrofit.converter.GsonConverter;
+import com.andexert.retrofitexample.rest.RestApiDispenser;
 
 /**
  * Author :    Chutaux Robin
  * Date :      10/2/2014
  */
 public class App extends Application {
-    private static RestApiDispencer restApiDispencer;
+    private static RestApiDispenser restApiDispenser;
 
     @Override
     public void onCreate() {
         super.onCreate();
 
-        restApiDispencer = new RestApiDispencer();
+        restApiDispenser = new RestApiDispenser();
     }
 
-    public static RestApiDispencer getRestApiDispencer() {
-        return restApiDispencer;
+    public static RestApiDispenser getRestApiDispenser() {
+        return restApiDispenser;
     }
 }

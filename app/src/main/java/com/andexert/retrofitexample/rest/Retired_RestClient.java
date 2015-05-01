@@ -11,12 +11,12 @@ import retrofit.converter.GsonConverter;
  * Author :    Chutaux Robin
  * Date :      10/2/2014
  */
-public class RetiredRestClient {
+public class Retired_RestClient {
 
     private static final String BASE_URL = "http://api.openweathermap.org/";
     private WeatherApi apiService;
 
-    public RetiredRestClient() {
+    public Retired_RestClient() {
         Gson gson = new GsonBuilder()
             .registerTypeAdapterFactory(new ItemTypeAdapterFactory())
             .create();
