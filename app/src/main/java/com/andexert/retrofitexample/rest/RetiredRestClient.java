@@ -1,6 +1,6 @@
 package com.andexert.retrofitexample.rest;
 
-import com.andexert.retrofitexample.rest.service.WeatherService;
+import com.andexert.retrofitexample.rest.apiInterfaces.WeatherApi;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -11,12 +11,12 @@ import retrofit.converter.GsonConverter;
  * Author :    Chutaux Robin
  * Date :      10/2/2014
  */
-public class RestClient {
+public class RetiredRestClient {
 
     private static final String BASE_URL = "http://api.openweathermap.org/";
-    private WeatherService apiService;
+    private WeatherApi apiService;
 
-    public RestClient() {
+    public RetiredRestClient() {
         Gson gson = new GsonBuilder()
             .registerTypeAdapterFactory(new ItemTypeAdapterFactory())
             .create();
@@ -27,10 +27,10 @@ public class RestClient {
                 .setConverter(new GsonConverter(gson))
                 .build();
 
-        apiService = restAdapter.create(WeatherService.class);
+        apiService = restAdapter.create(WeatherApi.class);
     }
 
-    public WeatherService getWeatherService() {
+    public WeatherApi getWeatherService() {
         return apiService;
     }
 }

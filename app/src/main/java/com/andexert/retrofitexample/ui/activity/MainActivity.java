@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.andexert.retrofitexample.R;
 import com.andexert.retrofitexample.app.App;
+import com.andexert.retrofitexample.rest.apiInterfaces.WeatherApi;
 import com.andexert.retrofitexample.rest.model.ApiResponse;
 import com.squareup.picasso.Picasso;
 
@@ -63,14 +64,15 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.inject(this);
-
-
     }
 
     @OnClick(R.id.activity_main_search_button)
     protected void onSearchClick() {
         if (!searchEditText.getText().toString().equals("")) {
-            App.getRestClient().getWeatherService().getWeather(searchEditText.getText().toString(), new Callback<ApiResponse>() {
+            // Retire the first iteration of rest client because it's not singleton
+            /*App.getRestClient().getWeatherService().getWeather(searchEditText.getText().toString(), new Callback<ApiResponse>() {*/
+
+            App.getRestApiDispencer().getRestApi(WeatherApi.class).getWeather(searchEditText.getText().toString(), new Callback<ApiResponse>() {
                 @Override
                 public void success(ApiResponse apiResponse, Response response) {
                     final Date sunriseDate = new Date(apiResponse.getSys().getSunriseTime() * 1000);
