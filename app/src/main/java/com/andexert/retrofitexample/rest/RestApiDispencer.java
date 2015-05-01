@@ -1,9 +1,13 @@
 package com.andexert.retrofitexample.rest;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.HashMap;
 import java.util.Map;
 
 import retrofit.RestAdapter;
+import retrofit.converter.GsonConverter;
 
 /**
  * Created by xiaolu on 4/30/15.
@@ -22,8 +26,16 @@ public class RestApiDispencer {
 
     // restAdapter is treated as an argument for the constructor which implies that rest adater
     // can be a singleton class and be shared by all API interfaces
-    public RestApiDispencer(RestAdapter restAdapter) {
-        this.restAdapter = restAdapter;
+    public RestApiDispencer() {
+        Gson gson = new GsonBuilder()
+                .registerTypeAdapterFactory(new ItemTypeAdapterFactory())
+                .create();
+
+        this.restAdapter = new RestAdapter.Builder()
+                .setLogLevel(RestAdapter.LogLevel.FULL)
+                .setEndpoint(RestApiDispencer.BASE_URL)
+                .setConverter(new GsonConverter(gson))
+                .build();
     }
 
 
