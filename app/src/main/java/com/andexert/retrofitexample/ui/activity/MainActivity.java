@@ -14,7 +14,7 @@ import android.widget.TextView;
 import com.andexert.retrofitexample.R;
 import com.andexert.retrofitexample.app.App;
 import com.andexert.retrofitexample.rest.apiInterfaces.WeatherApi;
-import com.andexert.retrofitexample.rest.model.ApiResponse;
+import com.andexert.retrofitexample.rest.model.WeatherApiResponse;
 import com.squareup.picasso.Picasso;
 
 import java.sql.Date;
@@ -70,27 +70,27 @@ public class MainActivity extends Activity {
             // NOTE Retire the first iteration of rest client because it's not singleton
             /*App.getRestClient().getWeatherService().getWeather(searchEditText.getText().toString(), new Callback<ApiResponse>() {*/
 
-            App.getRestApiDispenser().getRestApi(WeatherApi.class).getWeather(searchEditText.getText().toString(), new Callback<ApiResponse>() {
+            App.getRestApiDispenser().getRestApi(WeatherApi.class).getWeather(searchEditText.getText().toString(), new Callback<WeatherApiResponse>() {
                 @Override
-                public void success(ApiResponse apiResponse, Response response) {
-                    final Date sunriseDate = new Date(apiResponse.getSys().getSunriseTime() * 1000);
-                    final Date sunsetDate = new Date(apiResponse.getSys().getSunsetTime() * 1000);
+                public void success(WeatherApiResponse weatherApiResponse, Response response) {
+                    final Date sunriseDate = new Date(weatherApiResponse.getSys().getSunriseTime() * 1000);
+                    final Date sunsetDate = new Date(weatherApiResponse.getSys().getSunsetTime() * 1000);
                     final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh':'mm':'ss a");
 
-                    getActionBar().setTitle(apiResponse.getStrCityName());
-                    countryTextView.setText(apiResponse.getSys().getStrCountry());
+                    getActionBar().setTitle(weatherApiResponse.getStrCityName());
+                    countryTextView.setText(weatherApiResponse.getSys().getStrCountry());
 
-                    if (!apiResponse.getWeather().isEmpty()) {
+                    if (!weatherApiResponse.getWeather().isEmpty()) {
                         Picasso.with(MainActivity.this).load("http://openweathermap.org/img/w/" +
-                                apiResponse.getWeather().get(0).getStrIconName() + ".png").into(iconImageView);
-                        weatherTextView.setText(apiResponse.getWeather().get(0).getStrDesc());
+                                weatherApiResponse.getWeather().get(0).getStrIconName() + ".png").into(iconImageView);
+                        weatherTextView.setText(weatherApiResponse.getWeather().get(0).getStrDesc());
                     }
 
                     sunsetTextView.setText(simpleDateFormat.format(sunsetDate));
                     sunriseTextView.setText(simpleDateFormat.format(sunriseDate));
 
                     searchEditText.setText("");
-                    Log.e(TAG, "City name : " + apiResponse.getStrCityName());
+                    Log.e(TAG, "City name : " + weatherApiResponse.getStrCityName());
                     dataLayout.setVisibility(View.VISIBLE);
                     weatherLayout.setVisibility(View.VISIBLE);
                 }

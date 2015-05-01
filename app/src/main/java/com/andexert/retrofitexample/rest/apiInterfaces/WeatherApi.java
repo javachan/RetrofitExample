@@ -1,6 +1,6 @@
 package com.andexert.retrofitexample.rest.apiInterfaces;
 
-import com.andexert.retrofitexample.rest.model.ApiResponse;
+import com.andexert.retrofitexample.rest.model.WeatherApiResponse;
 
 import retrofit.Callback;
 import retrofit.http.GET;
@@ -13,5 +13,5 @@ import retrofit.http.Query;
 public interface WeatherApi {
     // http://api.openweathermap.org/data/2.5/weather?q=saratoga
     @GET("/data/2.5/weather")
-    public void getWeather(@Query("q") String strCity, Callback<ApiResponse> callback);
+    public void getWeather(@Query("q") String strCity, Callback<WeatherApiResponse> callback);
 }

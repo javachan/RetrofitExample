@@ -16,7 +16,7 @@ import java.util.ArrayList;
  * Date :      10/2/2014
  */
 @Parcel
-public class ApiResponse {
+public class WeatherApiResponse {
 
     @SerializedName("coord")
     private Coord coord;
